@@ -1,0 +1,25 @@
+{
+  "name": "lms-plugin-rag-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild .lmstudio/entry.ts --platform=node --target=node18.16.0 --sourcemap=inline --tree-shaking=true --bundle --packages=external --outfile=.lmstudio/production.js --define:process.env.NODE_ENV=\\\"production\\\"",
+    "build:dev": "esbuild .lmstudio/entry.ts --platform=node --target=node18.16.0 --sourcemap=inline --tree-shaking=true --bundle --packages=external --outfile=.lmstudio/dev.js --define:process.env.NODE_ENV=\\\"development\\\"",
+    "typecheck": "tsc --noEmit",
+    "pack": "node scripts/pack.js",
+    "dev": "lms dev",
+    "push": "lms push"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lmstudio/sdk": "1.4.0",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.9.3"
+  }
+}
